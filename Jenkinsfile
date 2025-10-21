@@ -1,12 +1,17 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     environment {
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
         DOCKER_HUB_USERNAME = 'sri2710'
         USER_SERVICE_IMAGE = "${DOCKER_HUB_USERNAME}/user-service"
         ORDER_SERVICE_IMAGE = "${DOCKER_HUB_USERNAME}/order-service"
         IMAGE_TAG = "${BUILD_NUMBER}"
+        PATH = "/usr/local/bin:${env.PATH}"
     }
 
     stages {
