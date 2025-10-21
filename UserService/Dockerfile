@@ -1,10 +1,10 @@
-# UserService Dockerfile - Simple Version
-FROM openjdk:17-jdk-slim
+# UserService Dockerfile
+FROM eclipse-temurin:21-jdk-alpine
 
 # Set working directory
 WORKDIR /app
 
-# Copy the JAR file (make sure to build it first with mvn clean package)
+# Copy the JAR file
 COPY target/*.jar app.jar
 
 # Expose port
